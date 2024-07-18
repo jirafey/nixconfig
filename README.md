@@ -1448,6 +1448,7 @@ Jul 18 20:04:32 hostname hm-activate-user[20520]: Creating profile generation 3
 Jul 18 20:04:32 hostname hm-activate-user[20520]: Creating home file links in /home/user
 Jul 18 20:04:32 hostname hm-activate-user[20520]: Activating onFilesChange
 Jul 18 20:04:32 hostname hm-activate-user[20520]: Activating reloadSystemd
-Jul 18 20:04:32 hostname systemd[1]: Finished Home Manager environment for user.```
+Jul 18 20:04:32 hostname systemd[1]: Finished Home Manager environment for user.
+```
 
 > Yes, so now HM should be there and everything you configured through it should be that way you specified @Nobbz
