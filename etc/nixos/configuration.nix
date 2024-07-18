@@ -4,7 +4,7 @@ configuration.nix
 {
   imports =
     [ # Include the results of the hardware scan.
-      <home-manager/nixos>
+      # <home-manager/nixos>
       ./hardware-configuration.nix
     # <nixos-hardware/lenovo/ideapad/16ach6>
     ];
