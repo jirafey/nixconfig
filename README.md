@@ -200,7 +200,8 @@ restarting sysinit-reactivation.target
 environment.systemPackages = with pkgs; [
 ...
 home-manager
-];```
+];
+```
 
 > remove that! @Nobbz
 > As said, its best to get rid of the HM CLI if you do not want to use it standalone @Nobbz
