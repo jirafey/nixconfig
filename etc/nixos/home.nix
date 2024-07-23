@@ -9,6 +9,7 @@
 
   programs.firefox = {
    enable = true;
+   package = pkgs.firefox-devedition;
    policies = {
      AppAutoUpdate = false;
      AutofillAddressEnabled = false;
@@ -20,7 +21,8 @@
      Homepage.StartPage = "previous-session";
      NoDefaultBookmarks = true;
    };
-    profiles.default = {
+    profiles.dev-edition-default = {
+
     search = {
       force = true;
       default = "Startpage";
