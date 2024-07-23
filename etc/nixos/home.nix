@@ -71,6 +71,8 @@
       userChrome = builtins.readFile ./userChrome.css;
       userContent = builtins.readFile ./userContent.css;
       settings = {
+        "devtools.chrome.enabled" = true;
+        "devtools.debugger.remote-enabled" = true;
 	"extensions.pocket.enabled" = false;
 	"browser.toolbars.bookmarks.visibility" = "never";
 	"browser.urlbar.oneOffSearches" = false;
