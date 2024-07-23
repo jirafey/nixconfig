@@ -9,6 +9,8 @@
     # <nixos-hardware/lenovo/ideapad/16ach6>
     ];
 environment.systemPackages = with pkgs; [
+  python311Packages.pip
+  lz4 
   gnome.gnome-tweaks
   xclip # cat file | xclip -selection clipboard
   unzip
