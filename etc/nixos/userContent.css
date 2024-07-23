@@ -1,0 +1,369 @@
+/* userContent.css */
+/* 
+  ┌─┐┬┌┬┐┌─┐┬  ┌─┐
+  └─┐││││├─┘│  ├┤ 
+  └─┘┴┴ ┴┴  ┴─┘└─┘
+  ┌─┐┌─┐─┐ ┬      
+  ├┤ │ │┌┴┬┘      
+  └  └─┘┴ └─
+
+  by Miguel Avila
+
+  */
+
+  /*
+  
+  ┌─┐┌─┐┌┐┌┌─┐┬┌─┐┬ ┬┬─┐┌─┐┌┬┐┬┌─┐┌┐┌
+  │  │ ││││├┤ ││ ┬│ │├┬┘├─┤ │ ││ ││││
+  └─┘└─┘┘└┘└  ┴└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘
+
+  */
+
+  :root {
+      --sfwindow: #19171a;
+      --sfsecondary: #201e21;
+    }
+    
+
+    
+    /*─────────────────────────────*/
+    
+    /* 
+    ┌─┐┌─┐┬  ┌─┐┬─┐┌─┐
+    │  │ ││  │ │├┬┘└─┐
+    └─┘└─┘┴─┘└─┘┴└─└─┘ 
+    */
+    
+    /* Tabs colors  */
+    #tabbrowser-tabs:not([movingtab])
+      > #tabbrowser-arrowscrollbox
+      > .tabbrowser-tab
+      > .tab-stack
+      > .tab-background[multiselected='true'],
+    #tabbrowser-tabs:not([movingtab])
+      > #tabbrowser-arrowscrollbox
+      > .tabbrowser-tab
+      > .tab-stack
+      > .tab-background[selected='true'] {
+      background-image: none !important;
+      background-color: var(--toolbar-bgcolor) !important;
+    }
+    
+    /* Inactive tabs color */
+    #navigator-toolbox {
+      background-color: var(--sfwindow) !important;
+    }
+    
+    /* Window colors  */
+    :root {
+      --toolbar-bgcolor: var(--sfsecondary) !important;
+      --tabs-border-color: var(--sfsecondary) !important;
+      --lwt-sidebar-background-color: var(--sfwindow) !important;
+      --lwt-toolbar-field-focus: var(--sfsecondary) !important;
+    }
+    
+    /* Sidebar color  */
+    #sidebar-box,
+    .sidebar-placesTree {
+      background-color: var(--sfwindow) !important;
+    }
+    
+    /* 
+    
+    ┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐            
+    ││├┤ │  ├┤  │ ├┤             
+    ─┴┘└─┘┴─┘└─┘ ┴ └─┘            
+    ┌─┐┌─┐┌┬┐┌─┐┌─┐┌┐┌┌─┐┌┐┌┌┬┐┌─┐
+    │  │ ││││├─┘│ ││││├┤ │││ │ └─┐
+    └─┘└─┘┴ ┴┴  └─┘┘└┘└─┘┘└┘ ┴ └─┘
+    
+    */
+    
+    /* Tabs elements  */
+    .tab-close-button {
+      display: 0.01px;
+    }
+    
+
+    #nav-bar:not([tabs-hidden='true']) {
+      box-shadow: none;
+    }
+    
+    #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
+      > #tabbrowser-arrowscrollbox
+      > .tabbrowser-tab[first-visible-unpinned-tab] {
+      margin-inline-start: 0 !important;
+    }
+    
+    :root {
+      --toolbarbutton-border-radius: 0 !important;
+      --tab-border-radius: 0 !important;
+      --tab-block-margin: 0 !important;
+    }
+    
+    .tab-background {
+      border-right: 0px solid rgba(0, 0, 0, 0) !important;
+      margin-left: -4px !important;
+    }
+    
+    .tabbrowser-tab:is([visuallyselected='true'], [multiselected])
+      > .tab-stack
+      > .tab-background {
+      box-shadow: none !important;
+    }
+    
+    .tabbrowser-tab[last-visible-tab='true'] {
+      padding-inline-end: 0 !important;
+    }
+    
+    #tabs-newtab-button {
+      padding-left: 0 !important;
+    }
+    
+    /* Url Bar  */
+    #urlbar-input-container {
+      background-color: var(--sfsecondary) !important;
+      border: 1px solid rgba(0, 0, 0, 0) !important;
+    }
+    
+    #urlbar-container {
+      margin-left: 0 !important;
+    }
+    
+    #urlbar[focused='true'] > #urlbar-background {
+      box-shadow: none !important;
+    }
+    
+    #navigator-toolbox {
+      border: none !important;
+    }
+    
+    /* Bookmarks bar  */
+    .bookmark-item .toolbarbutton-icon {
+      display: none;
+    }
+    toolbarbutton.bookmark-item:not(.subviewbutton) {
+      min-width: 1.6em;
+    }
+    
+    /* Toolbar  */
+    #tracking-protection-icon-container,
+    #urlbar-zoom-button,
+    #star-button-box,
+    #pageActionButton,
+    #pageActionSeparator,
+    #tabs-newtab-button,
+    #back-button,
+    #PanelUI-button,
+    #forward-button,
+    .tab-secondary-label {
+      display: none !important;
+    }
+    
+    .urlbarView-url {
+      color: #dedede !important;
+    }
+    
+    /* Disable elements  */
+    #context-navigation,
+    #context-savepage,
+    #context-pocket,
+    #context-sendpagetodevice,
+    #context-selectall,
+    #context-viewsource,
+    #context-inspect-a11y,
+    #context-sendlinktodevice,
+    #context-openlinkinusercontext-menu,
+    #context-bookmarklink,
+    #context-savelink,
+    #context-savelinktopocket,
+    #context-sendlinktodevice,
+    #context-searchselect,
+    #context-sendimage,
+    #context-print-selection {
+      display: none !important;
+    }
+    
+    #context_bookmarkTab,
+    #context_moveTabOptions,
+    #context_sendTabToDevice,
+    #context_reopenInContainer,
+    #context_selectAllTabs,
+    #context_closeTabOptions {
+      display: none !important;
+    }
+
+  /*─────────────────────────────*/
+  /*─────────────────────────────*/
+  /*─────────────────────────────*/
+  /*─────────────────────────────*/
+  /*─────────────────────────────*/
+  /*─────────────────────────────*/
+  /*─────────────────────────────*/
+  /*─────────────────────────────*/
+
+    /* Customizations */
+
+
+    #reader-mode-button{ display: none }
+    .urlbar-go-button {
+      list-style-image: none;
+    }
+  /* Hide the address bar arrow */
+  #urlbar-container > #urlbar > #urlbar-icons > #identity-box > #identity-icon-labels > #editBookmarkPanel > #editBMPanel_keywordRow > .editBMPanel_keywordField > .searchbar-engine-one-offs {
+    display: none !important;
+  }
+  /* Top Left corner of the address bar */
+  #unified-extensions-button, #unified-extensions-button > .toolbarbutton-icon{
+    width: 1px !important;
+    padding: 0px !important;
+    }
+
+    /* Urlbar View */
+    
+    /*─────────────────────────────*/
+    /* Comment this section if you */
+    /* want to show the URL Bar    */
+    /*─────────────────────────────*/
+    
+    /* .urlbarView {
+      display: none !important;
+    }  */
+      /* .tabbrowser-tab:not([pinned]) .tab-icon-image {
+      display: none !important;
+    } */
+    /* Search Tabs icon removed */
+    #alltabs-button { display: none !important; }
+    /* Remove Minimize, Maximize, Close buttons */
+    .titlebar-buttonbox-container{ display:none }
+
+    #urlbar-go-button {
+      display: none !important;
+      /*list-style-image: url("chrome://global/skin/icons/search-glass.svg") !important;
+      transform: scaleX(-1) !important;*/
+    }
+    #urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon {
+      list-style-image: none !important;
+      opacity: 0;
+      width: 0px !important;
+      padding: 0px !important;
+      border-width: 0 !important;
+    }
+
+    /* MOVE URL TEXT INPUT */
+    #urlbar-input {
+    margin-left: 10px !important;
+    }     
+
+
+    /* REMOVE 'Search or enter address' TEXT */
+    #urlbar-input::placeholder{ 
+        color: transparent 
+    }
+
+    /* Remove Magnifying Glass Icon */
+    #urlbar:not(.searchButton) > #urlbar-input-container >     #identity-box[pageproxystate="invalid"] {
+      margin-inline-start: -35px;
+      opacity: 0;
+    }
+  /* MOVE URL TEXT INPUT */
+  #urlbar-input {
+    margin-left: 20px !important;
+  }     
+
+  /* REMOVE IDENTITY BOX SPACER */
+  #urlbar[pageproxystate="valid"] > #identity-box.extensionPage     {
+  border-image-slice: 0 !important;
+  }
+
+  #identity-box {
+    border-image-slice: 0 !important;
+  }
+
+
+
+  /* Scroll Backwards/Forwards arrows removed */
+
+  /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/hide_tabs_scrollbuttons.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* This should hide tabs scrollbuttons in a manner that preserves the ability to move tab strip when reordering tabs */
+
+#tabbrowser-arrowscrollbox{
+  --uc-compat-scrollbutton-margin: 1px; /* compatibility for non_floating_sharp_tabs.css */
+  --uc-scrollbutton-up-background: linear-gradient(-90deg,transparent,var(--lwt-accent-color) 35%);
+  --uc-scrollbutton-down-background: linear-gradient(90deg,transparent,var(--lwt-accent-color) 35%);
+}
+
+#tabbrowser-tabs:not([movingtab]){
+  --uc-scroll-visibility: hidden;
+}
+#tabbrowser-tabs[overflow]{
+  --uc-scrollbox-base-margin: -31px;
+  --uc-scrollbox-margin: calc(var(--uc-scrollbox-base-margin) + var(--tab-shadow-max-size));
+}
+:root[uidensity="compact"] #tabbrowser-tabs[overflow]{
+  --uc-scrollbox-base-margin: -25px;
+}
+#tabbrowser-arrowscrollbox:not([scrolledtostart="true"]){
+  --uc-scrollbox-overflow-start-margin: -1px;
+}
+#scrollbutton-up ~ spacer{
+  visibility: visible !important;
+}
+spacer[part="overflow-start-indicator"]{
+  order: -1;
+  margin-inline-start: var(--uc-scrollbox-overflow-start-margin,-0.5px) !important;
+}
+spacer[part="overflow-end-indicator"]{
+  order: 2;
+}
+
+#scrollbutton-down[disabled="true"] > .toolbarbutton-icon,
+#scrollbutton-up[disabled="true"] > .toolbarbutton-icon{
+  opacity: 0.4;
+} 
+#scrollbutton-up,
+#scrollbutton-down{
+  position: relative;
+  z-index: 1;
+  visibility: var(--uc-scroll-visibility,visible);
+  background-clip: border-box !important;
+  background-origin: initial !important;
+  background-repeat: no-repeat !important;
+  opacity: 1 !important;
+}
+#scrollbutton-up{
+  margin-inline-start: calc(0px - var(--tab-shadow-max-size,0px)) !important;
+  background-image: var(--uc-scrollbutton-up-background);
+}
+#scrollbutton-down{
+  margin-inline-end: calc(0px - var(--tab-shadow-max-size,0px)) !important;
+  background-image: var(--uc-scrollbutton-down-background);
+}
+.scrollbox-clip{ margin-inline: var(--uc-scrollbox-margin,0px); }
+
+/* Need to reset some things for other scrollboxes */
+.menupopup-arrowscrollbox{
+  --tab-shadow-max-size: 0;
+}
+
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
+}
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+
+#tabbrowser-tabs { visibility: collapse !important; }
+
+/* tst */
+/* Only works in Firefox if layout.css.has-selector.enabled is set to true in about:config . */
+/* html#main-window body:has(#sidebar-box[sidebarcommand=treestyletab_piro_sakura_ne_jp-sidebar-action][checked=true]:not([hidden=true])) #TabsToolbar {
+  visibility: collapse !important;
+} */
+
+  @-moz-document url(about:support) {
+#reset-box {display:none !important;}
+}
