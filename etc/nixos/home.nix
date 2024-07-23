@@ -22,25 +22,51 @@
    };
     profiles.default = {
     search = {
-        default = "Startpage";
-	 engines = {
-
-      "Google".metaData.alias = "@g";
-      "Google".icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-"Nix Packages" = {
-    urls = [{
-      template = "https://search.nixos.org/packages";
-      params = [
-        { name = "type"; value = "packages"; }
-        { name = "query"; value = "{searchTerms}"; }
+      force = true;
+      default = "Startpage";
+      order = [
+      "Startpage"
+      "NixOS Wiki"
+      "Nix Packages"
+      "Tabs"
+      "Bookmarks"
+      "History"
       ];
-    }];
 
-    icon = ""; 
-    definedAliases = [ "@np" ];
-  };
+      engines = {
+      "Startpage" = {
+      urls = [{ template = "https://www.startpage.com/rvd/search?query={searchTerms}&language=auto"; }];
+      iconUpdateURL = "https://www.startpage.com/sp/cdn/favicons/mobile/android-icon-192x192.png";
+      updateInterval = 24 * 60 * 60 * 1000; # every day
+      definedAliases = [ "@s" ];
       };
+      "Nix Packages" = {
+        urls = [{
+          template = "https://search.nixos.org/packages";
+	  params = [
+	  { name = "type"; value = "packages"; }
+	  { name = "query"; value = "{searchTerms}"; }
+	  ];
+          }];
+
+        icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+				definedAliases = [ "@np" ];
+				};
+		  "NixOS Wiki" = {
+			urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; }];
+			iconUpdateURL = "https://wiki.nixos.org/nixos.png";
+			updateInterval = 24 * 60 * 60 * 1000; # every day
+			definedAliases = [ "@nw" ];
       };
+
+      "Google".metaData.hidden = true;
+      "eBay".metaData.hidden = true;
+      "Wikipedia (en)".metaData.hidden = true;
+      "Bing".metaData.hidden = true;
+      "DuckDuckGo".metaData.hidden = true;
+      };
+
+    };
 
       userChrome = builtins.readFile ./userChrome.css;
       userContent = builtins.readFile ./userContent.css;
