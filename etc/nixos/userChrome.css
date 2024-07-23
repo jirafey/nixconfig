@@ -432,3 +432,27 @@ toolbar toolbarspring{
 .urlbarView-title-separator,
 .urlbarView-action,
 #urlbar-one-offs-header-label{ display: 0 }
+#urlbar .search-one-offs:not([hidden]) {
+    display: none !important;
+  }
+#urlbar-go-button {
+    display: none !important;
+   }
+   #searchbar:focus-within{
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-color: transparent !important
+}
+#searchbar:focus-within{
+  background-image: linear-gradient(to right, transparent 4%,lightgrey 4%, lightgrey 96%, transparent 96%);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+}
+#PopupSearchAutoComplete{
+  --panel-border-radius: 0 0 var(--arrowpanel-border-radius) var(--arrowpanel-border-radius) !important;
+  --arrowpanel-border-color: Highlight !important;
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+}
+.urlbar-go-button{display: none !important;}
