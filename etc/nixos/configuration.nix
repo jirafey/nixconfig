@@ -27,12 +27,12 @@ environment.systemPackages = with pkgs; [
   gnumake
   neovim
   wget
+  
+  firefox-devedition
   neofetch
   mpv-unwrapped
   ffsend
   brave
-  # firefox
-# (pkgs.wrapFirefox (pkgs.firefox-devedition-unwrapped.override {pipewireSupport = true;}) {})
   grim # screenshot functionality
   slurp # screenshot functionality
   wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
