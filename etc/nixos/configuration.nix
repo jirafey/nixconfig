@@ -1,4 +1,4 @@
-# configuration.nix 
+# configuration.nix
 { config, pkgs, ... }:
 
 {
@@ -10,6 +10,7 @@
     ];
 environment.systemPackages = with pkgs; [
   gnome.gnome-tweaks
+  xclip # cat file | xclip -selection clipboard
   unzip
   calibre
   qbittorrent
@@ -28,8 +29,8 @@ environment.systemPackages = with pkgs; [
   mpv-unwrapped
   ffsend
   brave
-  firefox
-  # (pkgs.wrapFirefox (pkgs.firefox-devedition-unwrapped.override {pipewireSupport = true;}) {})
+  # firefox
+# (pkgs.wrapFirefox (pkgs.firefox-devedition-unwrapped.override {pipewireSupport = true;}) {})
   grim # screenshot functionality
   slurp # screenshot functionality
   wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -210,4 +211,6 @@ home-manager.users.user = { pkgs, ... }: {
   # networking.firewall.enable = false;
 
   system.stateVersion = "24.05"; 
+
+
 }
