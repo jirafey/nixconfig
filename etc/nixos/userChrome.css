@@ -1,5 +1,4 @@
-/* userChrome.css */
-/* 
+  /* 
   ┌─┐┬┌┬┐┌─┐┬  ┌─┐
   └─┐││││├─┘│  ├┤ 
   └─┘┴┴ ┴┴  ┴─┘└─┘
@@ -84,6 +83,9 @@
       display: 0.01px;
     }
     
+    #downloads-button {
+      display: none;
+    }
 
     #nav-bar:not([tabs-hidden='true']) {
       box-shadow: none;
@@ -266,10 +268,7 @@
       margin-inline-start: -35px;
       opacity: 0;
     }
-  /* MOVE URL TEXT INPUT */
-  #urlbar-input {
-    margin-left: 20px !important;
-  }     
+  
 
   /* REMOVE IDENTITY BOX SPACER */
   #urlbar[pageproxystate="valid"] > #identity-box.extensionPage     {
@@ -348,7 +347,7 @@ spacer[part="overflow-end-indicator"]{
   --tab-shadow-max-size: 0;
 }
 
-#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+#main-window[tabsintitlebar="true"]:not([extradragspace="false"]) #TabsToolbar > .toolbar-items {
   opacity: 0;
   pointer-events: none;
 }
@@ -419,3 +418,17 @@ toolbarbutton.subviewbutton.subviewbutton-iconic .toolbarbutton-text{
     margin-top: 0 !important;
 }
 
+toolbar toolbarspring{
+  -moz-box-flex: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+}
+
+  /* REMOVE 'SEARCH WITH GOOGLE' TEXT */
+#urlbar-input::placeholder{ 
+    color: transparent 
+}
+#identity-box { visibility: collapse !important; }
+.urlbarView-title-separator,
+.urlbarView-action,
+#urlbar-one-offs-header-label{ display: 0 }
