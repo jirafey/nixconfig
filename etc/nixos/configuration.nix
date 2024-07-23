@@ -1,4 +1,4 @@
-configuration.nix 
+# configuration.nix 
 { config, pkgs, ... }:
 
 {
@@ -8,10 +8,12 @@ configuration.nix
       ./hardware-configuration.nix
     # <nixos-hardware/lenovo/ideapad/16ach6>
     ];
-
 environment.systemPackages = with pkgs; [
-  # some error about ipc
-  # qbittorrent
+  gnome.gnome-tweaks
+  unzip
+  calibre
+  qbittorrent
+  protonvpn-cli_2
   thunderbird-unwrapped
   mullvad-browser
   zoxide
@@ -19,7 +21,6 @@ environment.systemPackages = with pkgs; [
   dmidecode
   python3
   glxinfo
-  protonvpn-gui_legacy
   gnumake
   neovim
   wget
@@ -27,19 +28,24 @@ environment.systemPackages = with pkgs; [
   mpv-unwrapped
   ffsend
   brave
-  (pkgs.wrapFirefox (pkgs.firefox-devedition-unwrapped.override {pipewireSupport = true;}) {})
+  firefox
+  # (pkgs.wrapFirefox (pkgs.firefox-devedition-unwrapped.override {pipewireSupport = true;}) {})
   grim # screenshot functionality
   slurp # screenshot functionality
   wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
   mako # notification system developed by swaywm maintainer
   gnome3.adwaita-icon-theme
   gnomeExtensions.settingscenter
+  pulseaudio
   ];
  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 programs.neovim = {
   enable = true;
   defaultEditor = true;
 };
+
+
+
 # it was defined somewhere in store before
 # users.users.user.isNormalUser = true;
 home-manager.users.user = { pkgs, ... }: {
@@ -149,11 +155,10 @@ home-manager.users.user = { pkgs, ... }: {
   services.xserver.xkb = {
     layout = "us,pl";
     variant = "";
-    options = "grp:win_space_toggle";
+    options = "grp:win_space_toggle,caps:none";
   };
 
-
-  services.printing.enable = true;
+	  services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -181,15 +186,13 @@ home-manager.users.user = { pkgs, ... }: {
     #  thunderbird
     ];
   };
-programs.firefox = {
-    enable = true;
-  };
   # programs.firefox.package = pkgs.latest.firefox-devedition-unwrapped;# Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Enable the gnome-keyring secrets vault. 
   # Will be exposed through DBus to programs willing to store secrets.
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.gdm-password.enableGnomeKeyring = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
