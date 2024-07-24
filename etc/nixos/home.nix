@@ -71,7 +71,6 @@
     };
 
       userChrome = builtins.readFile ./userChrome.css;
-      userContent = builtins.readFile ./userContent.css;
       settings = {
         "devtools.chrome.enabled" = true;
         "devtools.debugger.remote-enabled" = true;
