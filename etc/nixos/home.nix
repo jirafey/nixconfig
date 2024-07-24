@@ -1,5 +1,13 @@
 # home.nix
 { lib, pkgs, ... }:
+let
+  startpage_query_base = "https://www.startpage.com/rvd/search";
+  startpage_params = "?query={searchTerms}&language=auto";
+  startpage_icon_url = "https://www.startpage.com/favicon.ico";
+  day_in_milliseconds = 24 * 60 * 60 * 1000;
+
+  
+in
 {
   home.username = "user";
   home.homeDirectory = "/home/user";
@@ -37,9 +45,14 @@
 
       engines = {
       "Startpage" = {
-      urls = [{ template = "https://www.startpage.com/rvd/search?query={searchTerms}&language=auto"; }];
-      iconUpdateURL = "https://www.startpage.com/sp/cdn/favicons/mobile/android-icon-192x192.png";
-      updateInterval = 24 * 60 * 60 * 1000; # every day
+      urls = [{ template = "${startpage_query_base}";
+      params = [
+        { name = "query"; value = "{searchTerms}"; }
+	{ name = "language"; value = "auto"; }
+      ];
+      }];
+      iconUpdateURL = "${startpage_icon_url}"; 
+      updateInterval = day_in_milliseconds;
       definedAliases = [ "@s" ];
       };
       "Nix Packages" = {
@@ -51,14 +64,15 @@
 	  ];
           }];
 
-        icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-				definedAliases = [ "@np" ];
-				};
-		  "NixOS Wiki" = {
-			urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; }];
-			iconUpdateURL = "https://wiki.nixos.org/nixos.png";
-			updateInterval = 24 * 60 * 60 * 1000; # every day
-			definedAliases = [ "@nw" ];
+icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+definedAliases = [ "@np" ];
+};
+"NixOS Wiki" = {
+urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; 
+}];
+iconUpdateURL = "https://wiki.nixos.org/nixos.png";
+updateInterval = day_in_milliseconds;
+definedAliases = [ "@nw" ];
       };
 
       "Google".metaData.hidden = true;
