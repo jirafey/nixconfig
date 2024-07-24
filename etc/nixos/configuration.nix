@@ -9,6 +9,7 @@
     # <nixos-hardware/lenovo/ideapad/16ach6>
     ];
 environment.systemPackages = with pkgs; [
+  sqlitebrowser
   python311Packages.pip
   lz4 
   gnome.gnome-tweaks
@@ -18,7 +19,6 @@ environment.systemPackages = with pkgs; [
   qbittorrent
   protonvpn-cli_2
   thunderbird-unwrapped
-  mullvad-browser
   zoxide
   git
   dmidecode
