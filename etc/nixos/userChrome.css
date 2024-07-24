@@ -1,37 +1,8 @@
-  /* 
-  ┌─┐┬┌┬┐┌─┐┬  ┌─┐
-  └─┐││││├─┘│  ├┤ 
-  └─┘┴┴ ┴┴  ┴─┘└─┘
-  ┌─┐┌─┐─┐ ┬      
-  ├┤ │ │┌┴┬┘      
-  └  └─┘┴ └─
-
-  by Miguel Avila
-
-  */
-
-  /*
   
-  ┌─┐┌─┐┌┐┌┌─┐┬┌─┐┬ ┬┬─┐┌─┐┌┬┐┬┌─┐┌┐┌
-  │  │ ││││├┤ ││ ┬│ │├┬┘├─┤ │ ││ ││││
-  └─┘└─┘┘└┘└  ┴└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘
-
-  */
-
   :root {
       --sfwindow: #19171a;
       --sfsecondary: #201e21;
     }
-    
-
-    
-    /*─────────────────────────────*/
-    
-    /* 
-    ┌─┐┌─┐┬  ┌─┐┬─┐┌─┐
-    │  │ ││  │ │├┬┘└─┐
-    └─┘└─┘┴─┘└─┘┴└─└─┘ 
-    */
     
     /* Tabs colors  */
     #tabbrowser-tabs:not([movingtab])
@@ -66,17 +37,6 @@
     .sidebar-placesTree {
       background-color: var(--sfwindow) !important;
     }
-    
-    /* 
-    
-    ┌┬┐┌─┐┬  ┌─┐┌┬┐┌─┐            
-    ││├┤ │  ├┤  │ ├┤             
-    ─┴┘└─┘┴─┘└─┘ ┴ └─┘            
-    ┌─┐┌─┐┌┬┐┌─┐┌─┐┌┐┌┌─┐┌┐┌┌┬┐┌─┐
-    │  │ ││││├─┘│ ││││├┤ │││ │ └─┐
-    └─┘└─┘┴ ┴┴  └─┘┘└┘└─┘┘└┘ ┴ └─┘
-    
-    */
     
     /* Tabs elements  */
     .tab-close-button {
@@ -307,152 +267,49 @@ See the above repository for updates as well as full license text. */
 #tabbrowser-arrowscrollbox:not([scrolledtostart="true"]){
   --uc-scrollbox-overflow-start-margin: -1px;
 }
-#scrollbutton-up ~ spacer{
-  visibility: visible !important;
-}
-spacer[part="overflow-start-indicator"]{
-  order: -1;
-  margin-inline-start: var(--uc-scrollbox-overflow-start-margin,-0.5px) !important;
-}
-spacer[part="overflow-end-indicator"]{
-  order: 2;
-}
 
-#scrollbutton-down[disabled="true"] > .toolbarbutton-icon,
-#scrollbutton-up[disabled="true"] > .toolbarbutton-icon{
-  opacity: 0.4;
-} 
-#scrollbutton-up,
-#scrollbutton-down{
-  position: relative;
-  z-index: 1;
-  visibility: var(--uc-scroll-visibility,visible);
-  background-clip: border-box !important;
-  background-origin: initial !important;
-  background-repeat: no-repeat !important;
-  opacity: 1 !important;
-}
-#scrollbutton-up{
-  margin-inline-start: calc(0px - var(--tab-shadow-max-size,0px)) !important;
-  background-image: var(--uc-scrollbutton-up-background);
-}
-#scrollbutton-down{
-  margin-inline-end: calc(0px - var(--tab-shadow-max-size,0px)) !important;
-  background-image: var(--uc-scrollbutton-down-background);
-}
-.scrollbox-clip{ margin-inline: var(--uc-scrollbox-margin,0px); }
-
-/* Need to reset some things for other scrollboxes */
-.menupopup-arrowscrollbox{
-  --tab-shadow-max-size: 0;
-}
-
-#main-window[tabsintitlebar="true"]:not([extradragspace="false"]) #TabsToolbar > .toolbar-items {
-  opacity: 0;
-  pointer-events: none;
-}
-#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-    visibility: collapse !important;
-}
-
-#tabbrowser-tabs { visibility: collapse !important; }
-
-/* tst */
-/* Only works in Firefox if layout.css.has-selector.enabled is set to true in about:config . */
-/* html#main-window body:has(#sidebar-box[sidebarcommand=treestyletab_piro_sakura_ne_jp-sidebar-action][checked=true]:not([hidden=true])) #TabsToolbar {
-  visibility: collapse !important;
-} */
-
-  menuitem[label="Save Page to Pocket"] {
-  display:none !important;
-}
 
 #reload-button, #stop-button {
   display: none !important;
 }
-@-moz-document url-prefix(chrome://messenger/content/msgAccountCentral.xhtml){
-  #settingsButton{ display: none !important; }
-}
+
 #fxa-toolbar-menu-button { display: none; }
 #TabsToolbar-customization-target { visibility: collapse !important; } 
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
-
-#placesContext { display: none !important; }
-
-/* --- Some code borrowed from /u/Trustadz --- */
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once in userChrome.css */
-
-/*  
-1. Add this for no text in the bookmark bar. Adjust the margins if you want more or less space around the icons. 
-*/
-.bookmark-item{
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-    padding-left: 0 !important; 
-}
-toolbarbutton.bookmark-item .toolbarbutton-text{
-    display: none !important;
-}
-toolbarbutton.bookmark-item .toolbarbutton-icon{
-    margin-left: 0 !important;
-}
-
-#PlacesToolbarItems > .bookmark-item > .toolbarbutton-icon[label]:not([label=""]) {
-    margin-inline-end: 0 !important;
-}
-toolbarbutton.subviewbutton.subviewbutton-iconic .toolbarbutton-text{
-    display: -moz-box !important;
-}
-
-/* 
-/* hide Recently Bookmarked */
-#panelMenu_recentBookmarks,
-#panelMenu_bookmarksMenu {
-  display:none!important;
-}
 
 
-#TabsToolbar :is(.tabbrowser-tab, .toolbarbutton-1, separator, #personal-bookmarks, #search-container, .accessibility-indicator, .private-browsing-indicator, #private-browsing-indicator-with-label)
-{
-    margin-top: 0 !important;
-}
-
-toolbar toolbarspring{
-  -moz-box-flex: 0 !important;
-  min-width: 0 !important;
+/* Remove "Flexible Space" on the left and on the right */
+toolbar toolbarspring {
   max-width: 0 !important;
 }
 
-  /* REMOVE 'SEARCH WITH GOOGLE' TEXT */
-#urlbar-input::placeholder{ 
-    color: transparent 
+/* Remove "magnifying glass" icon in urlbar 
+Remove search icon in urlbar */
+#identity-box { 
+  visibility: collapse;
 }
-#identity-box { visibility: collapse !important; }
-.urlbarView-title-separator,
-.urlbarView-action,
-#urlbar-one-offs-header-label{ display: 0 }
+
+/* Remove "This time, search with:" button in search suggestions in urlbar
+Remove search engine shortcuts (icons) 
+You can still look them up in "about:settings#search"
+*/
 #urlbar .search-one-offs:not([hidden]) {
-    display: none !important;
-  }
-#urlbar-go-button {
-    display: none !important;
-   }
-   #searchbar:focus-within{
-  border-bottom-right-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  border-bottom-color: transparent !important
+  display: none !important;
 }
-#searchbar:focus-within{
-  background-image: linear-gradient(to right, transparent 4%,lightgrey 4%, lightgrey 96%, transparent 96%);
-  background-size: 100% 1px;
-  background-repeat: no-repeat;
-  background-position-y: bottom;
+
+/* Remove "Go to the address in the Location Bar" button 
+Remove right arrow in the urlbar when typing */
+.urlbar-go-button {
+  display: none;
 }
-#PopupSearchAutoComplete{
-  --panel-border-radius: 0 0 var(--arrowpanel-border-radius) var(--arrowpanel-border-radius) !important;
-  --arrowpanel-border-color: Highlight !important;
-  border-top-right-radius: 0 !important;
-  border-top-left-radius: 0 !important;
+
+/* Remove "Open Web developer tools (Ctrl + Shift + I)" button
+In reality it is "Ctrl + Alt + Shift" */
+#developer-button {
+  display: none;
 }
-.urlbar-go-button{display: none !important;}
+
+/* Remove top-right margin (gray area) from the urlbar
+So it matches the top-left corner */
+#urlbar-container {
+  margin: 0 !important;
+}
