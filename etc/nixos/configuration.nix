@@ -16,8 +16,9 @@ environment.systemPackages = with pkgs; [
   xclip # cat file | xclip -selection clipboard
   unzip
   calibre
-  qbittorrent
-  protonvpn-cli_2
+  nerdfetch
+  fastfetch
+  cpufetch
   thunderbird-unwrapped
   zoxide
   git
@@ -27,9 +28,7 @@ environment.systemPackages = with pkgs; [
   gnumake
   neovim
   wget
-  
   firefox-devedition
-  neofetch
   mpv-unwrapped
   ffsend
   brave
