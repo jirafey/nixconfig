@@ -30,11 +30,8 @@ So it matches the top-left corner */
   color: transparent;
 }
 
-/* Remove tabs from the top-bar
-(also removes top-bar if there are no more icons) 
-for removing the whole top-bar, try: */
-/* #TabsToolbar-customization-target { visibility: collapse !important; } */
-#tabbrowser-tabs {
+/* Remove tabs from the top-bar and the top-bar itself
+#TabsToolbar-customization-target {
   visibility: collapse !important;
 }
 
