@@ -24,7 +24,8 @@
 	home-manager.users.user = {
 	  imports = [
 	./home.nix
-	./firefox.nix
+	./modules/firefox/firefox.nix
+	./modules/nvim/nvim.nix
 	];
 	};
 	}
