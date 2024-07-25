@@ -151,3 +151,7 @@ Remove "search tabs" button*/
 .titlebar-buttonbox-container {
   display: none
 }
+/* "Remove Open Picture-in-Picture (Ctrl+Shift+])" from urlbar button */
+#picture-in-picture-button {
+  display: ;
+}
