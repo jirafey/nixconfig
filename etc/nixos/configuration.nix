@@ -24,7 +24,6 @@ environment.systemPackages = with pkgs; [
   python3 # current stable python version on 24.05
   glxinfo # show information about the system
   gnumake # `make` for build automation, installing software by source
-  neovim # File editor
   wget # Retrieve content from the web server, download files
   firefox-devedition # Firefox Developer Edition
   nerdfetch # funny nerd-fonts for system information like neofetch
@@ -34,14 +33,7 @@ environment.systemPackages = with pkgs; [
   mpv-unwrapped # media player
   ffsend # share files e2ee
   brave # best chromium based browser currently
-  
-  # sway
-  grim # screenshot functionality
-  slurp # screenshot functionality
-  wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout 
-  mako # notification system developed by swaywm maintainer
   swayimg # image viewer
- 
   pulseaudio # audio
   # dino # Modern Jabber/XMPP Client using GTK/Vala
   # gnome
@@ -50,16 +42,8 @@ environment.systemPackages = with pkgs; [
   gnomeExtensions.settingscenter # quickly launching frequently used apps
 ];
 
- nix.settings.experimental-features = [ "nix-command" "flakes" ];
-programs.neovim = {
-  enable = true;
-  defaultEditor = true;
-};
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-
-
-# it was defined somewhere in store before
-# users.users.user.isNormalUser = true;
 home-manager.users.user = { pkgs, ... }: {
   home.packages = [ pkgs.atool pkgs.httpie ];
   programs.bash.enable = true;
@@ -74,21 +58,15 @@ home-manager.users.user = { pkgs, ... }: {
     enable = true;
   };
 
-  # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
+  # services.xserver.videoDrivers = ["nouveau"];
 
   hardware.nvidia = {
-
     modesetting.enable = true;
-
     powerManagement.enable = false;
-
     powerManagement.finegrained = false;
-
     open = false;
-
     nvidiaSettings = true;
-
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
@@ -128,8 +106,6 @@ home-manager.users.user = { pkgs, ... }: {
   programs.light.enable = true;
 
   security.polkit.enable = true;
-#disabling for home-manager
-  #programs.waybar.enable = true;
 
   services.xserver = {
     enable = true;  
@@ -219,23 +195,19 @@ systemd.packages = with pkgs.gnome3; [
     description = "user";
     extraGroups = [ "networkmanager" "wheel" "light" "video" ];
     packages = with pkgs; [
-    #  thunderbird
+    
     ];
   };
   # programs.firefox.package = pkgs.latest.firefox-devedition-unwrapped;# Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable the gnome-keyring secrets vault. 
-  # Will be exposed through DBus to programs willing to store secrets.
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.gdm-password.enableGnomeKeyring = true;
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   services.openssh.enable = true;
 
@@ -246,4 +218,5 @@ systemd.packages = with pkgs.gnome3; [
   # networking.firewall.enable = false;
 
   system.stateVersion = "24.05"; 
+
 }
