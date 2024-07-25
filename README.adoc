@@ -1,1 +1,3 @@
-link:/archive/README.md[Early issues with Home Manager]
+==== Maybe this will help someone (if not myself):
+
+====== link:/archive/README.md[Early issues with Home Manager]
