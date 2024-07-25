@@ -1,3 +1,4 @@
+
 # configuration.nix
 { config, pkgs, ... }:
 
@@ -9,37 +10,46 @@
     # <nixos-hardware/lenovo/ideapad/16ach6>
     ];
 environment.systemPackages = with pkgs; [
-  sqlitebrowser
-  python311Packages.pip
-  lz4 
-  gnome.gnome-tweaks
+  sqlitebrowser # open `.sqlite` files
+  python311Packages.pip # use pip for current stable python on 24.05
+  lz4 # compress/decompress `.lz4` files
   xclip # cat file | xclip -selection clipboard
-  unzip
-  calibre
-  nerdfetch
-  fastfetch
-  cpufetch
-  thunderbird-unwrapped
-  zoxide
-  git
-  dmidecode
-  python3
-  glxinfo
-  gnumake
-  neovim
-  wget
-  firefox-devedition
-  mpv-unwrapped
-  ffsend
-  brave
+  unzip # decompress `.zip` files
+  calibre # Manage `.mobi`/`.epub` files, etc for e-books
+  qbittorrent # Torrent client
+  thunderbird-unwrapped # E-mail client
+  zoxide # Better cd
+  git # version control system
+  dmidecode # show information about the system
+  python3 # current stable python version on 24.05
+  glxinfo # show information about the system
+  gnumake # `make` for build automation, installing software by source
+  neovim # File editor
+  wget # Retrieve content from the web server, download files
+  firefox-devedition # Firefox Developer Edition
+  nerdfetch # funny nerd-fonts for system information like neofetch
+  fastfetch # faster than neofetch and written in C
+  cpufetch # like neofetch but shows information about the CPU
+  htop # system monitor
+  mpv-unwrapped # media player
+  ffsend # share files e2ee
+  brave # best chromium based browser currently
+  
+  # sway
   grim # screenshot functionality
   slurp # screenshot functionality
-  wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+  wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout 
   mako # notification system developed by swaywm maintainer
-  gnome3.adwaita-icon-theme
-  gnomeExtensions.settingscenter
-  pulseaudio
-  ];
+  swayimg # image viewer
+ 
+  pulseaudio # audio
+  # dino # Modern Jabber/XMPP Client using GTK/Vala
+  # gnome
+  gnome.adwaita-icon-theme
+  gnome.gnome-tweaks # customize advanced gnome3
+  gnomeExtensions.settingscenter # quickly launching frequently used apps
+];
+
  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 programs.neovim = {
   enable = true;
@@ -131,15 +141,39 @@ home-manager.users.user = { pkgs, ... }: {
     desktopManager.gnome.enable = true; 
   };
 
-    systemd.packages = with pkgs.gnome3; [ gnome-session gnome-shell];
+systemd.packages = with pkgs.gnome3; [ 
+    gnome-session
+    gnome-shell
+    ];
 
   services.libinput.touchpad.naturalScrolling = false	;
+ documentation.nixos.enable = false;
 
   environment.gnome.excludePackages = (with pkgs; [
   gnome-photos
   gnome-tour
+  gedit
+  snapshot
+  loupe # gnome image viewer
+  gnome-text-editor
 ]) ++ (with pkgs.gnome; [
-  cheese # webcam tool
+  eog
+  gnome-calendar
+  gnome-maps
+  gnome-calculator
+  gnome-contacts
+  gnome-clocks
+  gnome-weather
+  gnome-system-monitor
+  gnome-font-viewer
+  gnome-disk-utility
+  baobab      # disk usage analyzer
+  cheese      # photo booth
+  eog         # image viewer
+  simple-scan # document scanner
+  yelp        # help viewer
+  file-roller # archive manager
+  seahorse    # password manager
   gnome-music
   gnome-terminal
   epiphany # web browser
@@ -212,6 +246,4 @@ home-manager.users.user = { pkgs, ... }: {
   # networking.firewall.enable = false;
 
   system.stateVersion = "24.05"; 
-
-
 }
