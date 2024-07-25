@@ -1,5 +1,5 @@
 # home.nix
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   startpage_query_base = "https://www.startpage.com/rvd/search";
   startpage_params = "?query={searchTerms}&language=auto";
@@ -9,6 +9,7 @@ let
   
 in
 {
+
   home.username = "user";
   home.homeDirectory = "/home/user";
   # You do not need to change this if you're reading this in the future.
@@ -87,6 +88,8 @@ definedAliases = [ "@nw" ];
 
       userChrome = builtins.readFile ./userChrome.css;
       settings = {
+        "signon.rememberSignons" = false;
+	"signon.autofillForms" = false;
         "browser.download.forbid_open_with" = true;
         "browser.download.start_downloads_in_tmp_dir" = true;
         "browser.download.open_pdf_attachments_inline" = true;
