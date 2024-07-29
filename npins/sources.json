@@ -1,0 +1,23 @@
+{
+  "pins": {
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre658745.038fb464fcfa/nixexprs.tar.xz",
+      "hash": "16akmwffa0fdxq1f0dqzq4ny0wfdcp8gzinm57i81x9i11kjfsi9"
+    },
+    "nvim-asciidoc-preview": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "tigion",
+        "repo": "nvim-asciidoc-preview"
+      },
+      "branch": "main",
+      "revision": "7f8847767757478a9fe768a941c77b599fbc6cc9",
+      "url": "https://github.com/tigion/nvim-asciidoc-preview/archive/7f8847767757478a9fe768a941c77b599fbc6cc9.tar.gz",
+      "hash": "0109rrwn64d0blwynjmd96zmipf6vws50xi6g69gd63limavf1p9"
+    }
+  },
+  "version": 3
+}

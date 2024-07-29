@@ -9,7 +9,26 @@
       ./hardware-configuration.nix
     # <nixos-hardware/lenovo/ideapad/16ach6>
     ];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      noto-fonts
+      overpass
+      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    ];
+  };
+programs.nano.enable = false;
+
 environment.systemPackages = with pkgs; [
+  npins
+  xkbset
+  killall
+  xorg.xmodmap
+  xorg.xev
+  xvkbd # enter characters onto other clients
+  xautomation # Control X from the command line for scripts
+  xbindkeys # keyboard shortcuts
+  fontpreview # preview fonts
   sqlitebrowser # open `.sqlite` files
   python311Packages.pip # use pip for current stable python on 24.05
   lz4 # compress/decompress `.lz4` files
@@ -41,7 +60,7 @@ environment.systemPackages = with pkgs; [
   gnome.gnome-tweaks # customize advanced gnome3
   gnomeExtensions.settingscenter # quickly launching frequently used apps
 ];
-
+environment.variables.EDITOR = "neovim";
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 home-manager.users.user = { pkgs, ... }: {
@@ -99,12 +118,6 @@ home-manager.users.user = { pkgs, ... }: {
     LC_TIME = "en_GB.UTF-8";
   };
 
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-  programs.light.enable = true;
-
   security.polkit.enable = true;
 
   services.xserver = {
@@ -131,6 +144,7 @@ systemd.packages = with pkgs.gnome3; [
   gedit
   snapshot
   loupe # gnome image viewer
+  gnome-connections
   gnome-text-editor
 ]) ++ (with pkgs.gnome; [
   eog

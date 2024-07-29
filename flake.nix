@@ -9,11 +9,16 @@
       url = "github:nix-community/home-manager?ref=release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim?ref=nixos-24.05";
+    # nixvim = {
+    #  url = "github:nix-community/nixvim?ref=nixos-24.05";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    nvim-flake = {
+      url = "github:jirafey/nvim-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
@@ -30,7 +35,7 @@
                   ./home.nix
 	          ./modules/firefox/firefox.nix
 	          ./modules/nvim/nvim.nix
-	         ./modules/bash/bash.nix
+	          ./modules/bash/bash.nix
 	        ];
 	      };
 	    }

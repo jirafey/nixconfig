@@ -4,7 +4,12 @@
 
 programs.bash = {
   enable = true;
-  profileExtra = "export TZ=Europe/London";
+  profileExtra = ''
+    export TZ=Europe/Warsaw
+  '';
+  bashrcExtra = ''
+    eval "$(zoxide init bash)"
+  '';
 };
 
 }
