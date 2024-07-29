@@ -20,6 +20,10 @@
 programs.nano.enable = false;
 
 environment.systemPackages = with pkgs; [
+  keyd
+  libgcc
+  deno
+  nodejs_22
   npins
   xkbset
   killall
@@ -62,6 +66,18 @@ environment.systemPackages = with pkgs; [
 ];
 environment.variables.EDITOR = "neovim";
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  systemd.services.keyd = {
+    description = "key remapping daemon";
+    enable = true;
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.keyd}/bin/keyd";
+    };
+    wantedBy = [ "sysinit.target" ];
+    requires = [ "local-fs.target" ];
+    after = [ "local-fs.target" ];
+  };
 
 home-manager.users.user = { pkgs, ... }: {
   home.packages = [ pkgs.atool pkgs.httpie ];

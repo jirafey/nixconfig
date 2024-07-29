@@ -36,6 +36,7 @@
 	          ./modules/firefox/firefox.nix
 	          ./modules/nvim/nvim.nix
 	          ./modules/bash/bash.nix
+            # ./modules/keyd/keyd.nix
 	        ];
 	      };
 	    }
