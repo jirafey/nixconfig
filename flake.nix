@@ -13,8 +13,12 @@
     #  url = "github:nix-community/nixvim?ref=nixos-24.05";
     #  inputs.nixpkgs.follows = "nixpkgs";
     # };
-    nvim-flake = {
-      url = "github:jirafey/nvim-flake";
+    #nvim-flake = {
+     #url = "github:jirafey/nvim-flake";
+     #inputs.nixpkgs.follows = "nixpkgs";
+    #};
+    kickstart-nix = {
+      url = "github:jirafey/kickstart-nix.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
