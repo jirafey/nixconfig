@@ -6,7 +6,7 @@
   imports = [
     # inputs.nixvim.homeManagerModules.nixvim
     ];
-
+  nixpkgs.overlays = [ <kickstart-nix-nvim>.overlays.default ];
 
   home.username = "user";
   home.homeDirectory = "/home/user";
@@ -14,6 +14,7 @@
   # Don't ever change this after the first build.  Don't ask questions.
   home.stateVersion = "24.05";
   home.packages = [
-    inputs.nvim-flake.packages.${pkgs.stdenv.system}.default
+    #inputs.nvim-flake.packages.${pkgs.stdenv.system}.default
+    inputs.kickstart-nix.packages.${pkgs.stdenv.system}.default
   ];
 }
