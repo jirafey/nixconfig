@@ -12,6 +12,19 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
+       ubuntu_font_family
+    liberation_ttf
+    # Persian Font
+    vazir-fonts
+       noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  liberation_ttf
+  fira-code
+  fira-code-symbols
+  mplus-outline-fonts.githubRelease
+  dina-font
+  proggyfonts
       noto-fonts
       overpass
       (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
@@ -19,7 +32,39 @@
   };
 programs.nano.enable = false;
 
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+    ''
+    * * * * * notify-send "a"
+    ''
+    ];
+  };
+  services.keyd = {
+  enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        settings = {
+          main = {
+            shift = "oneshot(shift)";
+          };
+        };
+      };
+    };
+  };
+
 environment.systemPackages = with pkgs; [
+  vlc
+  python311Packages.srt
+  notepadqq
+  file
+  ffmpeg
+  libnotify
+  cron
+  wayfarer
+  simplescreenrecorder
+  asciidoctor
   keyd
   libgcc
   deno
@@ -67,18 +112,7 @@ environment.systemPackages = with pkgs; [
 environment.variables.EDITOR = "neovim";
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  systemd.services.keyd = {
-    description = "key remapping daemon";
-    enable = true;
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.keyd}/bin/keyd";
-    };
-    wantedBy = [ "sysinit.target" ];
-    requires = [ "local-fs.target" ];
-    after = [ "local-fs.target" ];
-  };
-
+ 
 home-manager.users.user = { pkgs, ... }: {
   home.packages = [ pkgs.atool pkgs.httpie ];
   programs.bash.enable = true;
