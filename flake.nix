@@ -13,8 +13,12 @@
     #  url = "github:nix-community/nixvim?ref=nixos-24.05";
     #  inputs.nixpkgs.follows = "nixpkgs";
     # };
-    nvim-flake = {
-      url = "github:jirafey/nvim-flake";
+    #nvim-flake = {
+     #url = "github:jirafey/nvim-flake";
+    #inputs.nixpkgs.follows = "nixpkgs";
+    #};
+    kickstart-nix = {
+      url = "github:jirafey/kickstart-nix.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -34,8 +38,9 @@
 	        imports = [
                   ./home.nix
 	          ./modules/firefox/firefox.nix
-	          ./modules/nvim/nvim.nix
-	          ./modules/bash/bash.nix
+	          ./modules/nvim.nix
+	          ./modules/bash.nix
+            #./modules/dev/c.nix
             # ./modules/keyd/keyd.nix
 	        ];
 	      };

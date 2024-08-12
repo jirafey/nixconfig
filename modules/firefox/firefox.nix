@@ -41,11 +41,8 @@ programs.firefox = {
 
       engines = {
       "Startpage" = {
-      urls = [{ template = "${startpage_query_base}";
-      params = [
-        { name = "query"; value = "{searchTerms}"; }
-	{ name = "language"; value = "auto"; }
-      ];
+      urls = [{ 
+        template = "${startpage_query_base}${startpage_params}"; 
       }];
       iconUpdateURL = "${startpage_icon_url}"; 
       updateInterval = day_in_milliseconds;
